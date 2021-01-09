@@ -1,3 +1,4 @@
+import 'package:calc/key-controller.dart';
 import 'package:flutter/material.dart';
 
 import 'keysymbol.dart';
@@ -49,6 +50,8 @@ class CalculatorKey extends StatelessWidget {
     }
   }
 
+  static dynamic _fire(CalculatorKey key) => KeyController.fire(KeyEvent(key));
+
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +69,7 @@ class CalculatorKey extends StatelessWidget {
           color: color,
           elevation: 4,
           child: Text(symbol.value, style: style),
-          onPressed: () {},
+          onPressed:()=> _fire(this),
         )
     );
   }
